@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hybrid Renewable Energy Dashboard - Sri Sairam College of Engineering</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons (Font Awesome) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<!-- default theme = dashboard -->
+<body class="theme-dashboard">
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo">
+          <i class="fas fa-leaf"></i>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Hybrid Energy</span>
+          <span class="brand-subtitle">Sri Sairam College of Engineering</span>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <div class="profile-avatar">
+          <span>HE</span>
+        </div>
+        <div class="profile-info">
+          <p class="profile-name">Hybrid Energy Team</p>
+          <p class="profile-role">Final Year Project</p>
+          <p class="profile-college">Sri Sairam College of Engineering</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-item active" data-section="dashboard">
+          <i class="fas fa-gauge"></i>
+          <span>Dashboard</span>
+        </button>
+        <button class="nav-item" data-section="analytics">
+          <i class="fas fa-chart-column"></i>
+          <span>Analytics</span>
+        </button>
+        <button class="nav-item" data-section="reports">
+          <i class="fas fa-cloud-bolt"></i>
+          <span>Reports</span>
+        </button>
+        <button class="nav-item" data-section="team">
+          <i class="fas fa-users"></i>
+          <span>Team</span>
+        </button>
+        <button class="nav-item" data-section="settings">
+          <i class="fas fa-gear"></i>
+          <span>Settings</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <span class="status-dot"></span>
+        <span>System Status: Online</span>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <div class="content">
+      <header class="topbar">
+        <div>
+          <h1 class="topbar-title">Hybrid Renewable Energy Dashboard</h1>
+          <p class="topbar-subtitle">
+            Real-time (simulated) monitoring of Solar, Wind & Battery
+          </p>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-badge">
+            <i class="fas fa-sun"></i>
+            <span id="currentTime">--:--</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="main">
+        <!-- DASHBOARD: SUNNY GREEN -->
+        <section id="dashboard" class="page-section active-section">
+          <section class="hero-row">
+            <div class="hero-text">
+              <h2>Live Hybrid Energy Overview</h2>
+              <p>Sunny, clean and stable energy generation from solar + wind with smart battery storage.</p>
+            </div>
+            <div class="hero-visual">
+              <div class="sun">
+                <div class="sun-core"></div>
+                <div class="sun-rays"></div>
+              </div>
+              <div class="hill"></div>
+              <div class="solar-panels">
+                <div class="panel"></div>
+                <div class="panel"></div>
+              </div>
+              <div class="turbine">
+                <div class="tower"></div>
+                <div class="nacelle"></div>
+                <div class="blades"></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="card-row">
+            <div class="card hover-animate">
+              <div class="card-header">
+                <span class="card-icon solar-icon"><i class="fas fa-solar-panel"></i></span>
+                <span class="card-title">Solar Power</span>
+              </div>
+              <p class="card-value" id="solarPower">3.5 kW</p>
+              <p class="card-note">Live solar generation</p>
+            </div>
+
+            <div class="card hover-animate">
+              <div class="card-header">
+                <span class="card-icon wind-icon"><i class="fas fa-wind"></i></span>
+                <span class="card-title">Wind Power</span>
+              </div>
+              <p class="card-value" id="windPower">2.1 kW</p>
+              <p class="card-note">Live wind generation</p>
+            </div>
+
+            <div class="card hover-animate">
+              <div class="card-header">
+                <span class="card-icon battery-icon"><i class="fas fa-battery-half"></i></span>
+                <span class="card-title">Battery Level</span>
+              </div>
+              <p class="card-value" id="batteryLevel">78%</p>
+              <p class="card-note">Energy stored in battery</p>
+            </div>
+
+            <div class="card hover-animate">
+              <div class="card-header">
+                <span class="card-icon total-icon"><i class="fas fa-bolt"></i></span>
+                <span class="card-title">Total Power</span>
+              </div>
+              <p class="card-value" id="totalPower">5.6 kW</p>
+              <p class="card-note">Solar + Wind output</p>
+            </div>
+          </section>
+        </section>
+
+        <!-- ANALYTICS: COOL BLUE WINDY -->
+        <section id="analytics" class="page-section">
+          <section class="grid-2">
+            <div class="section hover-animate">
+              <div class="section-header">
+                <h2><i class="fas fa-battery-full"></i> Battery Status</h2>
+              </div>
+              <div class="battery-bar">
+                <div class="battery-fill" id="batteryFill"></div>
+              </div>
+              <p class="battery-text" id="batteryText">78% charged</p>
+            </div>
+
+            <div class="section hover-animate">
+              <div class="section-header">
+                <h2><i class="fas fa-chart-bar"></i> Power Contribution</h2>
+              </div>
+              <div class="power-bars">
+                <div class="power-bar">
+                  <div class="power-label">
+                    <span class="dot solar-dot"></span>
+                    <span>Solar</span>
+                  </div>
+                  <div class="bar-outer">
+                    <div class="bar-inner solar" id="solarBar"></div>
+                  </div>
+                  <span class="bar-value" id="solarValue">3.5 kW</span>
+                </div>
+
+                <div class="power-bar">
+                  <div class="power-label">
+                    <span class="dot wind-dot"></span>
+                    <span>Wind</span>
+                  </div>
+                  <div class="bar-outer">
+                    <div class="bar-inner wind" id="windBar"></div>
+                  </div>
+                  <span class="bar-value" id="windValue">2.1 kW</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <!-- REPORTS: DARK STORM + LIGHTNING + RAIN -->
+        <section id="reports" class="page-section">
+          <section class="grid-2">
+            <div class="section hover-animate storm-section">
+              <div class="section-header">
+                <h2><i class="fas fa-cloud-bolt"></i> Total Power Trend (Storm Mode)</h2>
+                <span class="section-tag">Last 20 updates</span>
+              </div>
+
+              <div class="storm-visual">
+                <div class="storm-sky"></div>
+                <div class="cloud"></div>
+                <div class="lightning-bolt"></div>
+                <div class="rain"></div>
+              </div>
+
+              <div class="history-chart" id="powerHistory">
+                <!-- Bars added by JS -->
+              </div>
+            </div>
+
+            <div class="section hover-animate">
+              <div class="section-header">
+                <h2><i class="fas fa-leaf"></i> CO₂ & Cost Savings</h2>
+              </div>
+              <div class="savings-grid">
+                <div class="savings-card">
+                  <span class="savings-label">CO₂ Saved</span>
+                  <span class="savings-value" id="co2Saved">12.4 kg</span>
+                  <span class="savings-note">Reduction in emissions</span>
+                </div>
+                <div class="savings-card">
+                  <span class="savings-label">Money Saved</span>
+                  <span class="savings-value" id="moneySaved">₹ 540</span>
+                  <span class="savings-note">Compared to grid cost</span>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3>Project Overview</h3>
+                <p>
+                  This professional dashboard showcases a hybrid renewable energy
+                  system that integrates solar and wind power with battery storage.
+                  Live (simulated) data demonstrates real-time monitoring of power
+                  generation, storage behaviour, and environmental benefits. This
+                  project is designed and developed as a final year work at
+                  <strong>Sri Sairam College of Engineering</strong>.
+                </p>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <!-- TEAM: AESTHETIC TEAM DASHBOARD -->
+        <section id="team" class="page-section">
+          <section class="section team-section hover-animate">
+            <div class="section-header">
+              <h2><i class="fas fa-users"></i> Project Team</h2>
+              <span class="section-tag">Sri Sairam College of Engineering</span>
+            </div>
+
+            <p class="team-intro">
+              Meet the passionate minds behind the Hybrid Renewable Energy Generative Solution.
+            </p>
+
+            <div class="team-grid">
+              <div class="team-card">
+                <div class="team-avatar team-avatar-1">R</div>
+                <div class="team-info">
+                  <p class="team-name">Rehan</p>
+                  <p class="team-role">Project Lead & Frontend</p>
+                </div>
+              </div>
+
+              <div class="team-card">
+                <div class="team-avatar team-avatar-2">N</div>
+                <div class="team-info">
+                  <p class="team-name">Naveen Kumar</p>
+                  <p class="team-role">Backend & Integrations</p>
+                </div>
+              </div>
+
+              <div class="team-card">
+                <div class="team-avatar team-avatar-3">S</div>
+                <div class="team-info">
+                  <p class="team-name">Samarth</p>
+                  <p class="team-role">Data & Analytics</p>
+                </div>
+              </div>
+
+              <div class="team-card">
+                <div class="team-avatar team-avatar-4">K</div>
+                <div class="team-info">
+                  <p class="team-name">Kavin</p>
+                  <p class="team-role">IoT & Hardware</p>
+                </div>
+              </div>
+
+              <div class="team-card">
+                <div class="team-avatar team-avatar-5">S</div>
+                <div class="team-info">
+                  <p class="team-name">Shivaraya</p>
+                  <p class="team-role">Testing & Validation</p>
+                </div>
+              </div>
+
+              <div class="team-card">
+                <div class="team-avatar team-avatar-6">T</div>
+                <div class="team-info">
+                  <p class="team-name">Tanuja</p>
+                  <p class="team-role">Documentation & UI</p>
+                </div>
+              </div>
+
+              <div class="team-card">
+                <div class="team-avatar team-avatar-7">S</div>
+                <div class="team-info">
+                  <p class="team-name">Samyuktha</p>
+                  <p class="team-role">Research & Presentation</p>
+                </div>
+              </div>
+            </div>
+
+            <p class="team-footer-line">
+              Together, we designed, implemented, and validated this eco-friendly hybrid energy solution.
+            </p>
+          </section>
+        </section>
+
+        <!-- SETTINGS: WARM SOLAR THEME -->
+        <section id="settings" class="page-section">
+          <section class="section hover-animate">
+            <div class="section-header">
+              <h2><i class="fas fa-gear"></i> Dashboard Settings</h2>
+            </div>
+            <p style="font-size: 0.8rem; color: #4a1f06; margin-bottom: 10px;">
+              These settings control simulation speed information and theme label (for demo).
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+              <div class="savings-card">
+                <span class="savings-label">Simulation Speed</span>
+                <div style="margin-top: 6px; font-size: 0.8rem;">
+                  <label><input type="radio" name="speed" value="slow" checked> Slow</label><br/>
+                  <label><input type="radio" name="speed" value="normal"> Normal</label><br/>
+                  <label><input type="radio" name="speed" value="fast"> Fast</label>
+                </div>
+              </div>
+
+              <div class="savings-card">
+                <span class="savings-label">Theme Label</span>
+                <div style="margin-top: 6px; font-size: 0.8rem;">
+                  <label><input type="radio" name="theme" value="eco" checked> Eco Green</label><br/>
+                  <label><input type="radio" name="theme" value="cool"> Cool Blue</label><br/>
+                  <label><input type="radio" name="theme" value="storm"> Storm Mode</label>
+                </div>
+              </div>
+            </div>
+
+            <p id="settingsMessage" style="margin-top: 10px; font-size: 0.8rem;">
+              Current mode: Slow simulation • Eco Green label (visual only for demo).
+            </p>
+          </section>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>
+          Hybrid Renewable Energy Generative Solution &copy;
+          <span id="year"></span> &mdash; Sri Sairam College of Engineering
+        </p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
